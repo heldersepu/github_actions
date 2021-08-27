@@ -22,3 +22,12 @@ jobs:
 
             - name: Versions
               run: npm version; aws --version
+              
+            - name: Test
+              run: |
+                FILES=$(git log -m -1 --name-only --pretty="format:")
+                if [ $(echo $FILES | grep -c "github") -eq  0 ]; then
+                    echo "No changes on github"
+                else
+                    echo "We got changes"
+                fi
