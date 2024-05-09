@@ -25,6 +25,7 @@ jobs:
               
             - name: Test
               run: |
+                echo "this is just a i-secret test"
                 FILES=$(git log -m -1 --name-only --pretty="format:" | grep "github")
                 if [ $(echo $FILES | grep -c "github") -eq  0 ]; then
                     echo "No changes on github"
