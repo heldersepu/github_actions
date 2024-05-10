@@ -28,7 +28,7 @@ jobs:
                 echo "this is just testing the i-secret ..."
                 echo "$SUPER_SECRET"
                 git log -n 1 --name-only --pretty="format:"
-                FILES=$(git log -m -1 --name-only --pretty="format:" | grep "github")
+                FILES=$(git log -n 1 --name-only --pretty="format:" | grep "github")
                 if [ $(echo $FILES | grep -c "github") -eq  0 ]; then
                     echo "No changes on github"
                 else
