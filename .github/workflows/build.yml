@@ -22,15 +22,5 @@ jobs:
               run: npm version; aws --version
 
             - name: Test
-              env:
-                SUPER_SECRET: ${{ secrets.TEST }}
               run: |
-                echo "this is just testing the i-secret ..."
-                echo "$SUPER_SECRET"
-                git log -n 1 --name-only --pretty="format:"
-                FILES=$(git log -n 1 --name-only --pretty="format:" | grep "github")
-                if [ $(echo $FILES | grep -c "github") -eq  0 ]; then
-                    echo "No changes on github"
-                else
-                    echo "We got changes"
-                fi
+                echo "this is just testing"
