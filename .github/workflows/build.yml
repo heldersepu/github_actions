@@ -20,10 +20,10 @@ jobs:
 
             - name: Versions
               run: npm version; aws --version
-              
+
             - name: Test
               env:
-                SUPER_SECRET: ${{ secrets.TEST }} 
+                SUPER_SECRET: ${{ secrets.TEST }}
               run: |
                 echo "this is just testing the i-secret ..."
                 echo "$SUPER_SECRET"
